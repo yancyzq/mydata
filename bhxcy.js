@@ -15,7 +15,7 @@ const jsname = '渤海宣传员'
 let envSplitor = ['\n','@']
 let httpResult, httpReq, httpResp
 
-let userCookie = ($.isNode() ? process.env.bhxcytoken : $.getdata('bhxcytoken')) || 'fnldrOHy6TeLp4sfMAIAjYQg';
+let userCookie = ($.isNode() ? process.env.bhxcytoken : $.getdata('bhxcytoken')) || '';
 
 
 let userList = []
