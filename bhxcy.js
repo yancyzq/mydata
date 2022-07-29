@@ -1,23 +1,10 @@
-/*
-渤海宣传员
-
-邀请码：907547
-
-cron: 16 7,19 * * *
-
-抓：api.yd.ihaoqu.com
-
-把捉到token填到bhxcytoken里，换行或者@隔开，捉包后不要再打开小程序否则会掉CK
-*/
-const $ = new Env('渤海宣传员');
 const jsname = '渤海宣传员'
+const $ = new Env(jsname);
 
 let envSplitor = ['\n','@']
 let httpResult, httpReq, httpResp
 
 let userCookie = ($.isNode() ? process.env.bhxcytoken : $.getdata('fnldrOHy6TeLp4sfMAIAjYQg')) || '';
-
-
 let userList = []
 
 let userIdx = 0
@@ -27,7 +14,112 @@ let md5Salt = '2022hqhd07bhyh05'
 let todayDay = (new Date()).getDay()
 todayDay = todayDay==0 ? 7 : todayDay
 ///////////////////////////////////////////////////////////////////
-const _0x9492=['getUserInfo','uid=','查询账户失败:\x20','&signure=','https://api.yd.ihaoqu.com/?r=api&apiAction=getUserInfo','兑换E卡失败:\x20','finally','&token=','uid','wait','post','签到失败:\x20','token','https://api.yd.ihaoqu.com/?r=api&apiAction=Recharge','\x0a===============\x20账号[','手机：','point','SignIn','done','log','name','积分：','MobilePhone','msg','Recharge','invCode'];const _0x59e8=function(_0x9492c6,_0x59e8df){_0x9492c6=_0x9492c6-0x0;let _0x5ec34c=_0x9492[_0x9492c6];return _0x5ec34c;};class UserInfo{constructor(_0x1854e){this['index']=++userIdx;this['name']=this['index'];this['valid']=![];let _0x511060=$['str2json'](_0x1854e);this['uid']=_0x511060['uid']||'';this[_0x59e8('0xc')]=_0x511060[_0x59e8('0xc')]||'';}async[_0x59e8('0x0')](){try{let _0x181462=_0x59e8('0x4');let _0x218f7f=MD5Encrypt(_0x59e8('0x0')+this['uid']+md5Salt+this['token']);let _0x828274=_0x59e8('0x1')+this['uid']+'&token='+this['token']+_0x59e8('0x3')+_0x218f7f;let _0x41dd30=populateUrlObject(_0x181462,_0x828274);await httpRequest(_0x59e8('0xa'),_0x41dd30);let _0x4d33eb=httpResult;if(!_0x4d33eb)return;if(_0x4d33eb['result']==0x1){this['invCode']=_0x4d33eb['invCode'];this['name']=_0x4d33eb[_0x59e8('0x16')];this[_0x59e8('0x10')]=_0x4d33eb['PhoneBill'];this['hasSign']=_0x4d33eb['signIn'][todayDay]==0x2?!![]:![];console['log'](_0x59e8('0xf')+this[_0x59e8('0x14')]);console['log']('邀请：'+this[_0x59e8('0x19')]);console[_0x59e8('0x13')](_0x59e8('0x15')+this[_0x59e8('0x10')]+'元');console['log']('签到：今天'+(this['hasSign']?'已':'未')+'签到');if(!this['hasSign']){await $['wait'](0xc8);await this[_0x59e8('0x11')]();}if(parseFloat(this[_0x59e8('0x10')])>=0xa){await $[_0x59e8('0x9')](0xc8);await this['Recharge']();}}else{console['log'](_0x59e8('0x2')+_0x4d33eb[_0x59e8('0x17')]);}}catch(_0x4cf236){console['log'](_0x4cf236);}finally{}}async['SignIn'](){try{let _0xd6eed5='https://api.yd.ihaoqu.com/?r=api&apiAction=SignIn';let _0x3a6417=MD5Encrypt(''+this['token']+md5Salt+this['uid']+_0x59e8('0x11'));let _0x5a2e0b='uid='+this[_0x59e8('0x8')]+_0x59e8('0x7')+this['token']+'&signure='+_0x3a6417;let _0x35e45f=populateUrlObject(_0xd6eed5,_0x5a2e0b);await httpRequest(_0x59e8('0xa'),_0x35e45f);let _0x38d21f=httpResult;if(!_0x38d21f)return;if(_0x38d21f['result']==0x1){console[_0x59e8('0x13')]('签到成功:\x20'+_0x38d21f['msg']);}else{console[_0x59e8('0x13')](_0x59e8('0xb')+_0x38d21f[_0x59e8('0x17')]);}}catch(_0x998328){console[_0x59e8('0x13')](_0x998328);}finally{}}async['Recharge'](){try{let _0x57fe4b=_0x59e8('0xd');let _0x3773d4=MD5Encrypt(_0x59e8('0x18')+this[_0x59e8('0x8')]+md5Salt+'2'+this['token']+'1');let _0x137ea9=_0x59e8('0x1')+this[_0x59e8('0x8')]+'&token='+this['token']+'&Type=1&Category=2&signure='+_0x3773d4;let _0x3806dc=populateUrlObject(_0x57fe4b,_0x137ea9);await httpRequest('post',_0x3806dc);let _0x1385f6=httpResult;if(!_0x1385f6)return;if(_0x1385f6['result']==0x1){console['log']('兑换E卡成功:\x20'+_0x1385f6[_0x59e8('0x17')]);}else{console['log'](_0x59e8('0x5')+_0x1385f6['msg']);}}catch(_0x26171f){console['log'](_0x26171f);}finally{}}async['userTask'](){console['log'](_0x59e8('0xe')+this['index']+']\x20===============');await this['getUserInfo']();}}!(async()=>{if(typeof $request!=='undefined'){await GetRewrite();}else{if(!await checkEnv())return;for(let _0x642e86 of userList){await _0x642e86['userTask']();}}})()['catch'](_0x1f3917=>console[_0x59e8('0x13')](_0x1f3917))[_0x59e8('0x6')](()=>$[_0x59e8('0x12')]());
+class UserInfo {
+    constructor(str) {
+        this.index = ++userIdx
+        this.name = this.index
+        this.valid = false
+        
+        let info = $.str2json(str)
+        this.uid = info.uid || ''
+        this.token = info.token || ''
+    }
+    
+    async getUserInfo() {
+        try {
+            let url = `https://api.yd.ihaoqu.com/?r=api&apiAction=getUserInfo`
+            let sign = MD5Encrypt(`getUserInfo${this.uid}${md5Salt}${this.token}`)
+            let body = `uid=${this.uid}&token=${this.token}&signure=${sign}`
+            let urlObject = populateUrlObject(url,body)
+            await httpRequest('post',urlObject)
+            let result = httpResult;
+            if(!result) return
+            //console.log(result)
+            if(result.result==1) {
+                this.invCode = result.invCode
+                this.name = result.MobilePhone
+                this.point = result.PhoneBill
+                this.hasSign = result.signIn[todayDay]==2 ? true : false
+                console.log(`手机：${this.name}`)
+                console.log(`邀请：${this.invCode}`)
+                console.log(`积分：${this.point}元`)
+                console.log(`签到：今天${this.hasSign?'已':'未'}签到`)
+                if(!this.hasSign) {
+                    await $.wait(200);
+                    await this.SignIn();
+                }
+                if(parseFloat(this.point) >= 10) {
+                    await $.wait(200);
+                    await this.Recharge();
+                }
+            } else {
+                console.log(`查询账户失败: ${result.msg}`)
+            }
+        } catch(e) {
+            console.log(e)
+        } finally {}
+    }
+    
+    async SignIn() {
+        try {
+            let url = `https://api.yd.ihaoqu.com/?r=api&apiAction=SignIn`
+            let sign = MD5Encrypt(`${this.token}${md5Salt}${this.uid}SignIn`)
+            let body = `uid=${this.uid}&token=${this.token}&signure=${sign}`
+            let urlObject = populateUrlObject(url,body)
+            await httpRequest('post',urlObject)
+            let result = httpResult;
+            if(!result) return
+            //console.log(result)
+            if(result.result==1) {
+                console.log(`签到成功: ${result.msg}`)
+            } else {
+                console.log(`签到失败: ${result.msg}`)
+            }
+        } catch(e) {
+            console.log(e)
+        } finally {}
+    }
+    
+    async Recharge() {
+        try {
+            let url = `https://api.yd.ihaoqu.com/?r=api&apiAction=Recharge`
+            let sign = MD5Encrypt(`Recharge${this.uid}${md5Salt}2${this.token}1`)
+            let body = `uid=${this.uid}&token=${this.token}&Type=1&Category=2&signure=${sign}`
+            let urlObject = populateUrlObject(url,body)
+            await httpRequest('post',urlObject)
+            let result = httpResult;
+            if(!result) return
+            //console.log(result)
+            if(result.result==1) {
+                console.log(result)
+                console.log(`[${this.name}]兑换E卡成功: ${result.msg}`)
+            } else {
+                console.log(`[${this.name}]兑换E卡失败: ${result.msg}`)
+            }
+        } catch(e) {
+            console.log(e)
+        } finally {}
+    }
+    
+    async userTask() {
+        console.log(`\n=============== 账号[${this.index}] ===============`)
+        await this.getUserInfo();
+    }
+}
+
+!(async () => {
+    if (typeof $request !== "undefined") {
+        await GetRewrite()
+    }else {
+        if(!(await checkEnv())) return;
+        
+        for(let user of userList) {
+            await user.userTask(); 
+        }
+    }
+})()
+.catch((e) => console.log(e))
+.finally(() => $.done())
 
 ///////////////////////////////////////////////////////////////////
 async function GetRewrite() {
