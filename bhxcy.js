@@ -4,7 +4,7 @@ const $ = new Env(jsname);
 let envSplitor = ['\n','@']
 let httpResult, httpReq, httpResp
 
-let userCookie = ($.isNode() ? process.env.bhxcytoken : $.getdata('fnldrOHy6TeLp4sfMAIAjYQg')) || '';
+let userCookie = ($.isNode() ? process.env.bhxcytoken : $.getdata('bhxcytoken')) || '';
 let userList = []
 
 let userIdx = 0
